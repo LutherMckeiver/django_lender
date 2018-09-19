@@ -9,7 +9,7 @@ class Book(models.Model):
     ]
     title = models.CharField(max_length=48)
     author = models.CharField(max_length=48)
-    year = models.DateField()
+    year = models.DateField(blank=True, null=True)
     status = models.CharField(choices=STATUS, default='available', max_length=48)
     date_added = models.DateTimeField(auto_now_add=True)
     last_borrowed = models.DateTimeField(auto_now=True)

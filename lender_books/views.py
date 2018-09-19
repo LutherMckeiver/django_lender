@@ -13,4 +13,10 @@ def book_list_view(request):
 
 
 def book_detail_view(request, pk=None):
-    pass
+    single_book = Book.objects.get(pk)
+
+    context = {
+        'book id': single_book
+    }
+
+    return render(request, 'books/book_detail.html', context=context)
