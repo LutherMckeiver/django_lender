@@ -130,7 +130,7 @@ STATIC_URL = '/static/'
 
 # Django Registration Settings
 
-ACCOUNT_REGISTRATION_DAYS = 1
+ACCOUNT_ACTIVATION_DAYS = 1
 LOGIN_REDIRECT_URL = '/'
 
 if DEBUG:
