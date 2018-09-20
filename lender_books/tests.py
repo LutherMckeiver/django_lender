@@ -1,6 +1,6 @@
 from django.test import TestCase, RequestFactory
 from .models import Book
-# Create your tests here.
+
 
 
 class TestBookModel(TestCase):
@@ -10,9 +10,14 @@ class TestBookModel(TestCase):
         Book.objects.create(title='Wall', author='Whiteboard')
 
     def test_book_titles(self):
+        """
+
+        :return: This function asserts that titles are correct
+        """
         self.assertEqual(self.book.title, 'Hello')
 
     def test_book_author(self):
+        """"""
         self.assertEqual(self.book.author, 'Goodbye')
 
     def test_wrong_title(self):
