@@ -33,6 +33,7 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split()
 INSTALLED_APPS = [
     'django_lender',
     'lender_books',
+    'django_registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -126,3 +127,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Django Registration Settings
+
+ACCOUNT_ACTIVATION_DAYS = 1
+LOGIN_REDIRECT_URL = '/'
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST
+    EMAIL_PORT
+    EMAIL_HOST_PASSWORD
+    EMAIL_HOST_TLS
+    EMAIL_USE_SSL
+    EMAIL_TIMEOUT

@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Book
 
 
 def book_list_view(request):
+    if not request.user.is_authenticated:
+        return render(request, 'base/base.html', status=403)
     books = Book.objects.all()
 
     context = {
