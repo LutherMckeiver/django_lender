@@ -137,9 +137,14 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST
-    EMAIL_PORT
-    EMAIL_HOST_PASSWORD
-    EMAIL_HOST_TLS
-    EMAIL_USE_SSL
-    EMAIL_TIMEOUT
+    # EMAIL_HOST
+    # EMAIL_PORT
+    # EMAIL_HOST_PASSWORD
+    # EMAIL_HOST_TLS
+    # EMAIL_USE_SSL
+    # EMAIL_TIMEOUT
+
+MEDIA_ROOT = '/static-assets/'
+
+
+

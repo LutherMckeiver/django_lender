@@ -3,10 +3,11 @@ from .models import Book
 
 
 def book_list_view(request):
-    if not request.user.is_authenticated:
-        return render(request, 'base/base.html', status=403)
-    books = Book.objects.all()
-
+    """
+    :param request:
+    :return: A list of all Books rendered in HTML
+    """
+    books = Book.objects.filter(user__username=request.user.username)
     context = {
         'books': books
     }
@@ -15,10 +16,13 @@ def book_list_view(request):
 
 
 def book_detail_view(request, pk=None):
-    single_book = Book.objects.get(pk)
-
+    """
+    :param request:
+    :param pk:
+    :return: A 404 if book is not found otherwise returns individual book detail
+    """
+    book = get_object_or_404(Book, id=pk, user__username=request.user.username)
     context = {
-        'book id': single_book
+        'book': book,
     }
-
-    return render(request, 'books/book_detail.html', context=context)
+    return render(request, 'books/book_detail.html', context)
